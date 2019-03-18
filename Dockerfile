@@ -47,17 +47,17 @@ RUN mvn -s /scratch/docker_settings.xml clean install
 WORKDIR /scratch
 RUN git clone https://github.com/mikn/security-ssl.git
 WORKDIR /scratch/security-ssl
-RUN mvn -s /scratch/docker_settings.xml clean install
+RUN mvn -s /scratch/docker_settings.xml -Dmaven.test.skip=true clean install
 
 WORKDIR /scratch
 RUN git clone https://github.com/mikn/security.git
 WORKDIR /scratch/security
-RUN mvn -s /scratch/docker_settings.xml clean install
+RUN mvn -s /scratch/docker_settings.xml -Dmaven.test.skip=true clean install
 
 WORKDIR /scratch
 RUN git clone https://github.com/mikn/security-advanced-modules.git
 WORKDIR /scratch/security-advanced-modules
-RUN mvn -s /scratch/docker_settings.xml clean install
+RUN mvn -s /scratch/docker_settings.xml -Dmaven.test.skip=true clean install
 
 WORKDIR /scratch/security
 RUN mvn -s /scratch/docker_settings.xml -Dmaven.test.skip=true -P advanced package
